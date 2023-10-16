@@ -79,5 +79,17 @@ def check_win():
             pg.draw.line(screen, (250, 0, 0), ((col + 1) * width / 3 - width / 6, 0),
                          ((col + 1) * width / 3 - width / 6, height), 4)
             break
-    if (board[0][0] == board[1][1] == board[2][2]) and (board[0],[0] is not None):
+    if (board[0][0] == board[1][1] == board[2][2]) and (board[0][0] is not None):
         winner = board[0][0]
+        pg.draw.line(screen, (250, 70, 70), (50, 50), (350, 350), 4)
+    
+    if (board[0][2] == board[1][1] == board[2][0]) and (board[0,2] is not None):
+        winner = board[0][2]
+        pg.draw.line(screen, (250, 70, 70), (50, 50), (350, 350), 4)
+    if (all([all(row) for row in board]) and winner is None):
+        draw = True
+    draw_status()
+    
+def drawXO(row, col):
+    global board, XO
+    
